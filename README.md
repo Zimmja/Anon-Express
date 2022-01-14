@@ -14,4 +14,7 @@ The front end app can be accessed [here](https://github.com/mhbae-dev/anonymeet)
 
 #### Interaction
 
-To run locally, run `npm start` in the command line from the root of the directory
+1. To run locally, run `npm start` in the command line from the root of the directory
+2. In a browser it will run on localhost:9000 and full room data will be viewed from this page
+
+
