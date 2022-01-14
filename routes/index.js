@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 let roomData = [
@@ -18,9 +18,26 @@ let roomData = [
   },
 ];
 
+// =====================
+// MISC FUNCTIONS
+// =====================
+const codeArray = [];
+
+const generateCode = () => Math.random().toString(36).slice(2);
+
+const randomCode = () => {
+  let newCode = generateCode();
+  if (codeArray.includes(newCode)) newCode = generateCode();
+  codeArray.push(newCode);
+  return newCode;
+};
+
+// ========================
+// ROUTER HELPER FUNCTIONS
+// ========================
 const addRoom = (par) => {
   const newRoom = {
-    roomID: roomData.length,
+    roomID: randomCode(),
     startDate: par.startDate,
     endDate: par.endDate,
     friendCount: par.friendCount,
@@ -42,6 +59,9 @@ const updateRoomArr = (par) => {
   return newArr;
 };
 
+// =====================
+// ROUTER FUNCTIONS
+// =====================
 router.get("/", function (req, res) {
   console.log(roomData);
   res.send(roomData);
