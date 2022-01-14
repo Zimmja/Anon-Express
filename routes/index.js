@@ -3,14 +3,14 @@ const router = express.Router();
 
 let roomData = [
   {
-    roomID: f670ffew,
+    roomID: 0,
     startDate: "2022-01-12",
     endDate: "2022-01-15",
     friendCount: 3,
     roomFormsRatings: [[], [], []],
   },
   {
-    roomID: ptn4c593,
+    roomID: 1,
     startDate: "2022-01-12",
     endDate: "2022-01-18",
     friendCount: 4,
