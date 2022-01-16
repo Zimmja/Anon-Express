@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-let roomData = [
+const defaultData = [
   {
     roomID: "xxxxxxxxxxx",
     startDate: "2022-01-12",
@@ -9,14 +9,9 @@ let roomData = [
     friendCount: 3,
     roomFormsRatings: [[], [], []],
   },
-  {
-    roomID: "yyyyyyyyyyy",
-    startDate: "2022-01-12",
-    endDate: "2022-01-18",
-    friendCount: 4,
-    roomFormsRatings: [[], [], [], []],
-  },
 ];
+
+let roomData = defaultData;
 
 // =====================
 // MISC FUNCTIONS
@@ -63,21 +58,23 @@ const updateRoomArr = (par) => {
 // ROUTER FUNCTIONS
 // =====================
 router.get("/", function (req, res) {
-  console.log(roomData);
   res.send(roomData);
 });
 
 router.post("/", function (req, res) {
   const newArr = addRoom(req.body);
   roomData = newArr;
-  console.log(roomData);
   res.send(roomData);
 });
 
 router.put("/", function (req, res) {
   const newArr = updateRoomArr(req.body);
   roomData = newArr;
-  console.log(roomData);
+  res.send(roomData);
+});
+
+router.delete("/", function (req, res) {
+  roomData = defaultData;
   res.send(roomData);
 });
 
