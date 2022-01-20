@@ -59,11 +59,15 @@ const updateRoomArr = (par) => {
   if (par.endDate) newArr[roomIndex].endDate = par.endDate;
   if (par.friendCount) newArr[roomIndex].friendCount = par.friendCount;
   if (par.roomFormsRatings)
-    newArr[roomIndex].roomFormsRatings = updateOneForm(
-      userID,
-      newArr[roomIndex].roomFormsRatings,
-      par.roomFormsRatings
-    );
+    if (!userID) {
+      newArr[roomIndex].roomFormsRatings = par.roomFormsRatings;
+    } else {
+      newArr[roomIndex].roomFormsRatings = updateOneForm(
+        userID,
+        newArr[roomIndex].roomFormsRatings,
+        par.roomFormsRatings
+      );
+    }
   return newArr;
 };
 
