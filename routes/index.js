@@ -3,7 +3,7 @@ const router = express.Router();
 
 const defaultData = [
   {
-    roomID: "xxxxxxxxxxx",
+    roomID: "xxxxxxxxxxj",
     startDate: "2022-01-12",
     endDate: "2022-01-15",
     friendCount: 3,
@@ -43,14 +43,31 @@ const addRoom = (par) => {
   return newArr;
 };
 
+const updateOneForm = (userID, serverFormsList, editedFormsList) => {
+  const formsArr = serverFormsList.slice();
+  formsArr[userID] = editedFormsList[userID];
+  return formsArr;
+};
+
 const updateRoomArr = (par) => {
-  const newArr = roomData.slice();
-  const roomIndex = newArr.findIndex((room) => room.roomID == par.roomID);
+  const newArr = roomData.slice(),
+    roomID = par.roomID.substr(0, 11),
+    userID = par.roomID.substr(11);
+
+  const roomIndex = newArr.findIndex((room) => room.roomID == roomID);
   if (par.startDate) newArr[roomIndex].startDate = par.startDate;
   if (par.endDate) newArr[roomIndex].endDate = par.endDate;
   if (par.friendCount) newArr[roomIndex].friendCount = par.friendCount;
   if (par.roomFormsRatings)
-    newArr[roomIndex].roomFormsRatings = par.roomFormsRatings;
+    if (!userID) {
+      newArr[roomIndex].roomFormsRatings = par.roomFormsRatings;
+    } else {
+      newArr[roomIndex].roomFormsRatings = updateOneForm(
+        userID,
+        newArr[roomIndex].roomFormsRatings,
+        par.roomFormsRatings
+      );
+    }
   return newArr;
 };
 
