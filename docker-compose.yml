@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    command: npm start
+    volumes:
+      - .:/anon-express
+    ports:
+      - "9000:9000"

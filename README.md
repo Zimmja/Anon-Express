@@ -6,13 +6,16 @@ The front end app can be accessed [here](https://github.com/mhbae-dev/anonymeet)
 
 ### Use
 
-#### Installation
+Clone this repo's contents to a local repository, and navigate to that repository in the command line.
 
-1. Clone contents to a local repository
-2. Go into api directory and run `npm install` in the command line
-3. If any errors are encountered, use `npm audit fix — force` if prompted to until vulnerabilities are gone
+#### If using Docker:
 
-#### Interaction
+1. Run `docker compose up` in the command line to run
 
-1. To run locally, run `npm start` in the command line from the root of the directory
-2. In a browser it will run on localhost:9000 and full room data will be viewed from this page
+#### If not using Docker:
+
+1. Run `npm install` in the command line
+2. If any errors are encountered, use `npm audit fix — force` if prompted to until vulnerabilities are gone
+3. To run locally, run `npm start` in the command line from the root of the directory
+
+To check it is running correctly, go to [http://localhost:9000/](http://localhost:9000/); you should see information for a default room (start date: 2022-01-12, end date: 2022-01-15, 3 participants) in an API, like this: [{"roomID":"xxxxxxxxxxx","startDate":"2022-01-12","endDate":"2022-01-15","friendCount":3,"roomFormsRatings":[[],[],[]]}]
