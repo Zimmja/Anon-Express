@@ -1,6 +1,6 @@
 ### Introduction
 
-This is the backend for the Anonymeet app, a Makers Academy Final Project created by Myoung Bae, Andy Bird, Ryan Grimes, Courtney Stow, Ginny Thomas and Matt Zimmer. This has been created in [Express](https://expressjs.com/).
+This is the backend for the Heyday app, a Makers Academy Final Project created by Myoung Bae, Andy Bird, Ryan Grimes, Courtney Stow, Ginny Thomas and Matt Zimmer. This has been created in [Express](https://expressjs.com/).
 
 The front end app can be accessed [here](https://github.com/mhbae-dev/anonymeet).
 
